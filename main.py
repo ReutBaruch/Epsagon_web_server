@@ -13,13 +13,15 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
 
+
 @app.get("/spans")
 async def get_spans():
-    with open('C:/Users/TA/PycharmProjects/epsagon/spans.json') as f:
+    with open('./spans.json') as f:
         data = json.load(f)
     return data
 
