@@ -23,6 +23,11 @@ async def root():
 async def get_spans():
     with open('./spans.json') as f:
         data = json.load(f)
+    for span in data:
+        span["spanId"] = str(span["spanId"])
+        span["logs"] = str(span["logs"])
+
+
     return data
 
 
